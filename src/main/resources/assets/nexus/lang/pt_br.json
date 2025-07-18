@@ -1,2 +1,14 @@
 {
+  "itemGroup.nexus": "Nexus",
+  "item.nexus.orb": "Orbe Nexus",
+  "item.nexus.gema.nexus": "Gema Nexus",
+  "item.nexus.gema.solar": "Gema Solar",
+  "item.nexus.gema.lunar": "Gema Lunar",
+  "item.nexus.gema.nether": "Gema Nehter",
+  "item.nexus.gema.ender": "Gema Ender",
+  "tooltip.nexus.gema.nexus": "Gema descarregada, carrege em um coletor Nexus",
+  "tooltip.nexus.gema.solar": "Gema carregada com a essência do sol",
+  "tooltip.nexus.gema.lunar": "Gema carregada com a essência da lua",
+  "tooltip.nexus.gema.nether": "Gema carregada com a essência do nether",
+  "tooltip.nexus.gema.ender": "Gema carregada com a essência do ender"
 }

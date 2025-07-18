@@ -1,2 +1,14 @@
 {
+  "itemGroup.nexus": "Nexus",
+  "item.nexus.orb": "Nexus Orb",
+  "item.nexus.gema.nexus": "Nexus Gem",
+  "item.nexus.gema.solar": "Solar Gem",
+  "item.nexus.gema.lunar": "Lunar Gem",
+  "item.nexus.gema.nether": "Nether Gem",
+  "item.nexus.gema.ender": "Ender Gem",
+  "tooltip.nexus.gema.nexus": "Gem discharged, charge it at a Nexus collector",
+  "tooltip.nexus.gema.solar": "Gem charged with the essence of the sun",
+  "tooltip.nexus.gema.lunar": "Gem charged with the essence of the moon",
+  "tooltip.nexus.gema.nether": "Gem charged with the essence of the nether",
+  "tooltip.nexus.gema.ender": "Gem charged with the essence of ender"
 }

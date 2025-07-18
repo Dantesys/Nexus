@@ -19,8 +19,7 @@ public class GemaNexus extends Item implements Essenced {
     @Override
     @Deprecated
     public void appendHoverText(@NotNull ItemStack stack,@NotNull TooltipContext context,@NotNull TooltipDisplay tooltipDisplay,@NotNull Consumer<Component> tooltipAdder,@NotNull TooltipFlag flag) {
-        int tipo = getTipo(stack); // -1 = descarregada, 0+ = com essência
-
+        int tipo = getTipo(stack);
         String tipoNome = switch (tipo) {
             case 0 -> "solar";
             case 1 -> "lunar";
@@ -28,8 +27,7 @@ public class GemaNexus extends Item implements Essenced {
             case 3 -> "ender";
             default -> "nexus";
         };
-        tooltipAdder.accept(Component.translatable("tooltip."+ Nexus.MODID+".gema"));
-
+        tooltipAdder.accept(Component.translatable("tooltip."+Nexus.MODID+".gema."+tipoNome));
         super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
     }
     @Override
@@ -50,6 +48,6 @@ public class GemaNexus extends Item implements Essenced {
             case 3 -> "ender";
             default -> "normal";
         };
-        return Component.translatable("item.nexus.espada_" + essenceId);
+        return Component.translatable("item."+Nexus.MODID+".gema." + essenceId);
     }
 }
