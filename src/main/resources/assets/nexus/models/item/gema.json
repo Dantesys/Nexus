@@ -6,11 +6,11 @@
     "particle": "nexus:item/gema_nexus"
   },
   "overrides": [
-    { "predicate": { "custom_model_data": 0 }, "model": "nexus:item/gema_nexus" },
-    { "predicate": { "custom_model_data": 1 }, "model": "nexus:item/gema_solar" },
-    { "predicate": { "custom_model_data": 2 }, "model": "nexus:item/gema_lunar" },
-    { "predicate": { "custom_model_data": 3 }, "model": "nexus:item/gema_nether" },
-    { "predicate": { "custom_model_data": 4 }, "model": "nexus:item/gema_ender" }
+    { "predicate": { "tipo_nexus": 0 }, "model": "nexus:item/gema_nexus" },
+    { "predicate": { "tipo_nexus": 1 }, "model": "nexus:item/gema_solar" },
+    { "predicate": { "tipo_nexus": 2 }, "model": "nexus:item/gema_lunar" },
+    { "predicate": { "tipo_nexus": 3 }, "model": "nexus:item/gema_nether" },
+    { "predicate": { "tipo_nexus": 4 }, "model": "nexus:item/gema_ender" }
   ],
   "elements": [
     {

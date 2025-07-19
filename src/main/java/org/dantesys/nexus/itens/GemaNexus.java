@@ -46,7 +46,7 @@ public class GemaNexus extends Item implements Essenced {
             case 1 -> "lunar";
             case 2 -> "nether";
             case 3 -> "ender";
-            default -> "normal";
+            default -> "nexus";
         };
         return Component.translatable("item."+Nexus.MODID+".gema." + essenceId);
     }
