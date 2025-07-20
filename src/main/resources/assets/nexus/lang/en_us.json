@@ -7,8 +7,12 @@
   "item.nexus.gema.nether": "Nether Gem",
   "item.nexus.gema.ender": "Ender Gem",
   "tooltip.nexus.gema.nexus": "Gem discharged, charge it at a Nexus collector",
-  "tooltip.nexus.gema.solar": "Gem charged with the essence of the sun",
-  "tooltip.nexus.gema.lunar": "Gem charged with the essence of the moon",
-  "tooltip.nexus.gema.nether": "Gem charged with the essence of the nether",
-  "tooltip.nexus.gema.ender": "Gem charged with the essence of ender"
+  "tooltip.nexus.gema.solar": "Gem with the essence of the sun",
+  "tooltip.nexus.gema.lunar": "Gem with the essence of the moon",
+  "tooltip.nexus.gema.nether": "Gem with the essence of the nether",
+  "tooltip.nexus.gema.ender": "Gem with the essence of ender",
+  "effect.nexus.solar_effect": "Blessing of the Sun",
+  "effect.nexus.lunar_effect": "Moonlight Blessing",
+  "effect.nexus.nether_effect": "Burning Soul",
+  "effect.nexus.ender_effect": "Enderian Instinct"
 }

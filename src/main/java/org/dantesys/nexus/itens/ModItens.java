@@ -11,7 +11,7 @@ public class ModItens {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Nexus.MODID);
 
     public static final DeferredItem<Item> ORB = ITEMS.registerSimpleItem("orb",new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON));
-    public static final DeferredItem<Item> GEMA = ITEMS.register("gema",() -> new GemaNexus(new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<Item> GEMA = ITEMS.registerItem("gema",GemaNexus::new,new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);
