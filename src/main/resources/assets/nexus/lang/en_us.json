@@ -14,5 +14,6 @@
   "effect.nexus.solar_effect": "Blessing of the Sun",
   "effect.nexus.lunar_effect": "Moonlight Blessing",
   "effect.nexus.nether_effect": "Burning Soul",
-  "effect.nexus.ender_effect": "Enderian Instinct"
+  "effect.nexus.ender_effect": "Enderian Instinct",
+  "container.nexus.infusor": "Nexus Infuser"
 }

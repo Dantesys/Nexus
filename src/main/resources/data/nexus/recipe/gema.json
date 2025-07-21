@@ -1,0 +1,8 @@
+{
+  "type": "nexus:infusor",
+  "ingredient": "nexus:orb",
+  "ingredient2": "minecraft:glass",
+  "result": {
+    "id": "nexus:gema"
+  }
+}

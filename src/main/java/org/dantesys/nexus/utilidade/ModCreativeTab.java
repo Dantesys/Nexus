@@ -20,6 +20,7 @@ public class ModCreativeTab {
             .displayItems((parameters, output) -> {
                 output.accept(ModItens.ORB.get());
                 output.accept(ModItens.GEMA.get());
+                output.accept(ModItens.INFUSOR.get());
             }).build());
 
     public static void register(IEventBus event){
