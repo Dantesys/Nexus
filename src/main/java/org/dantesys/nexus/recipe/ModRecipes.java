@@ -28,11 +28,16 @@ public class ModRecipes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, Nexus.MODID);
 
     public static final Supplier<RecipeType<InfusorRecipe>> INFUSOR_TYPE =
-            RECIPE_TYPES.register("infusor", RecipeType::simple);
+            RECIPE_TYPES.register("infusor", () -> new RecipeType<InfusorRecipe>() {
+                @Override
+                public String toString() {
+                    return "infusor";
+                }
+            });
 
     public static void register(IEventBus bus){
+        SERIALIZERS.register(bus);
         RECIPE_BOOK_CATEGORIES.register(bus);
         RECIPE_TYPES.register(bus);
-        SERIALIZERS.register(bus);
     }
 }

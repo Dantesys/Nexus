@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "Q": { "item": "minecraft:redstone" },
-    "C": { "item": "minecraft:diamond" },
-    "S": { "item": "minecraft:stone" },
-    "P": { "item": "minecraft:sculk" },
-    "O": { "item": "minecraft:obsidian" },
-    "R": { "item": "minecraft:redstone_block" }
+    "Q": "minecraft:redstone",
+    "C": "minecraft:diamond",
+    "P": "minecraft:sculk",
+    "O": "minecraft:obsidian",
+    "R": "minecraft:redstone_block"
   },
   "pattern": [
     "QCQ",
-    "SPS",
+    "CPC",
     "ORO"
   ],
   "result": {

@@ -1,7 +1,9 @@
 package org.dantesys.nexus.blocos.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -177,5 +179,9 @@ public class InfusorEntity extends BlockEntity implements MenuProvider {
     @Override
     public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return new InfusorMenu(i, inventory, this, this.data);
+    }
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return saveWithoutMetadata(pRegistries);
     }
 }

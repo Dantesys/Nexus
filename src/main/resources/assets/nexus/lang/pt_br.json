@@ -15,5 +15,6 @@
   "effect.nexus.lunar_effect": "Bênção do Luar",
   "effect.nexus.nether_effect": "Alma Ardente",
   "effect.nexus.ender_effect": "Instinto Enderiano",
-  "container.nexus.infusor": "Infusor Nexus"
+  "container.nexus.infusor": "Infusor Nexus",
+  "block.nexus.infusor": "Infusor Nexus"
 }

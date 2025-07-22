@@ -3,6 +3,7 @@
   "ingredient": "nexus:orb",
   "ingredient2": "minecraft:glass",
   "result": {
-    "id": "nexus:gema"
+    "id": "nexus:gema",
+    "count": 1
   }
 }

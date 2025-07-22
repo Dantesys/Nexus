@@ -3,6 +3,7 @@
   "ingredient": "minecraft:diamond",
   "ingredient2": "minecraft:black_dye",
   "result": {
-    "id": "nexus:orb"
+    "id": "nexus:orb",
+    "count": 1
   }
 }
