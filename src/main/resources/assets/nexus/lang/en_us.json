@@ -16,5 +16,6 @@
   "effect.nexus.nether_effect": "Burning Soul",
   "effect.nexus.ender_effect": "Enderian Instinct",
   "container.nexus.infusor": "Nexus Infuser",
-  "block.nexus.infusor": "Nexus Infuser"
+  "block.nexus.infusor": "Nexus Infuser",
+  "block.nexus.coletor": "Nexus Collector"
 }

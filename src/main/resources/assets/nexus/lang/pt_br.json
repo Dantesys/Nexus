@@ -16,5 +16,6 @@
   "effect.nexus.nether_effect": "Alma Ardente",
   "effect.nexus.ender_effect": "Instinto Enderiano",
   "container.nexus.infusor": "Infusor Nexus",
-  "block.nexus.infusor": "Infusor Nexus"
+  "block.nexus.infusor": "Infusor Nexus",
+  "block.nexus.coletor": "Coletor Nexus"
 }

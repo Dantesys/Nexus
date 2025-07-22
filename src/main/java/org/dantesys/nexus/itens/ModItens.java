@@ -16,6 +16,7 @@ public class ModItens {
     public static final DeferredItem<Item> GEMA = ITEMS.registerItem("gema",GemaNexus::new,new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON));
 
     public static final DeferredItem<BlockItem> INFUSOR = ITEMS.registerSimpleBlockItem("infusor", ModBlocos.INFUSOR);
+    public static final DeferredItem<BlockItem> COLETOR = ITEMS.registerSimpleBlockItem("coletor", ModBlocos.COLETOR);
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);

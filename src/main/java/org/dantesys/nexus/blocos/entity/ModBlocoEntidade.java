@@ -15,6 +15,8 @@ public class ModBlocoEntidade {
 
     public static final Supplier<BlockEntityType<InfusorEntity>> INSUFOR_ENTITY = BLOCK_ENTITY_TYPES.register("infusor",
             () -> new BlockEntityType<>(InfusorEntity::new,false, ModBlocos.INFUSOR.get()));
+    public static final Supplier<BlockEntityType<ColetorEntity>> COLETOR_ENTITY = BLOCK_ENTITY_TYPES.register("coletor",
+            () -> new BlockEntityType<>(ColetorEntity::new,false, ModBlocos.COLETOR.get()));
 
     public static void register(IEventBus event){
         BLOCK_ENTITY_TYPES.register(event);

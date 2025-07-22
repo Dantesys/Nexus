@@ -8,6 +8,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.dantesys.nexus.Nexus;
+import org.dantesys.nexus.componentes.DataComponentes;
 import org.dantesys.nexus.itens.ModItens;
 
 public class ModCreativeTab {
@@ -21,6 +22,7 @@ public class ModCreativeTab {
                 output.accept(ModItens.ORB.get());
                 output.accept(ModItens.GEMA.get());
                 output.accept(ModItens.INFUSOR.get());
+                output.accept(ModItens.COLETOR.get());
             }).build());
 
     public static void register(IEventBus event){

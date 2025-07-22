@@ -11,7 +11,6 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 import static org.dantesys.nexus.recipe.ModRecipes.INFUSOR_TYPE;
-import static org.dantesys.nexus.recipe.ModRecipes.INFUSOR_CATEGORY;
 
 public record InfusorRecipe(Ingredient entrada, Ingredient entrada2, ItemStack saida) implements Recipe<InfusorInput> {
 
@@ -27,17 +26,12 @@ public record InfusorRecipe(Ingredient entrada, Ingredient entrada2, ItemStack s
         if (level.isClientSide()) {
             return false;
         }
-        return entrada.test(itemStacks.getItem(0)) && entrada.test(itemStacks.getItem(1));
+        return entrada.test(itemStacks.getItem(0)) && entrada2.test(itemStacks.getItem(1));
     }
 
     @Override
     public ItemStack assemble(InfusorInput itemStacks, HolderLookup.Provider provider) {
         return saida.copy();
-    }
-
-    @Override
-    public boolean isSpecial() {
-        return true;
     }
 
     @Override
@@ -56,7 +50,7 @@ public record InfusorRecipe(Ingredient entrada, Ingredient entrada2, ItemStack s
     }
     @Override
     public RecipeBookCategory recipeBookCategory() {
-        return INFUSOR_CATEGORY.get();
+        return RecipeBookCategories.CRAFTING_MISC;
     }
     public static class Serializer implements RecipeSerializer<InfusorRecipe> {
         public static final MapCodec<InfusorRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(

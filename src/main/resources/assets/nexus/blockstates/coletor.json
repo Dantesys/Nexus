@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": { "model": "nexus:block/coletor"},
+    "tipo_nexus=0": { "model": "nexus:block/coletor"},
+    "tipo_nexus=1": { "model": "nexus:block/coletor_solar"},
+    "tipo_nexus=2": { "model": "nexus:block/coletor_lunar"},
+    "tipo_nexus=3": { "model": "nexus:block/coletor_nether"},
+    "tipo_nexus=4": { "model": "nexus:block/coletor_ender"}
+  }
+}

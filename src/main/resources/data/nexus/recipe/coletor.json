@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "G": "minecraft:glass",
+    "R": "minecraft:redstone_block",
+    "O": "minecraft:diamond",
+    "I": "minecraft:iron_ingot",
+    "D": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "AGA",
+    "ROR",
+    "IDI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nexus:coletor"
+  }
+}
