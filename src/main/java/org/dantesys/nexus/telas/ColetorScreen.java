@@ -1,6 +1,5 @@
 package org.dantesys.nexus.telas;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -8,13 +7,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.dantesys.nexus.Nexus;
+import org.dantesys.nexus.utilidade.NexusTipos;
 
-public class InfusorScreen extends AbstractContainerScreen<InfusorMenu> {
-    private static final ResourceLocation TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Nexus.MODID, "textures/gui/infusor.png");
+public class ColetorScreen extends AbstractContainerScreen<ColetorMenu> {
+    private static ResourceLocation TEXTURE ;
 
-    public InfusorScreen(InfusorMenu menu, Inventory inv, Component component) {
+    public ColetorScreen(ColetorMenu menu, Inventory inv, Component component) {
         super(menu, inv, component);
+        TEXTURE = ResourceLocation.fromNamespaceAndPath(Nexus.MODID, "textures/gui/coletor_"+ NexusTipos.getNomeTipo(menu.isType())+".png");
     }
 
     @Override
@@ -23,11 +23,17 @@ public class InfusorScreen extends AbstractContainerScreen<InfusorMenu> {
         int y = (height - imageHeight) / 2;
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256, 256);
         renderProgressArrow(guiGraphics, x, y);
+        renderProgressEssence(guiGraphics, x, y);
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 68, y + 22, 176, 0, 39, menu.getScaledArrowProgress(), 256, 256);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 64, y + 35, 176, 0, menu.getScaledArrowProgress(), 10, 256, 256);
+        }
+    }
+    private void renderProgressEssence(GuiGraphics guiGraphics, int x, int y) {
+        if(menu.isLoading()) {
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 48, y + 74, 176, 10, menu.getScaledArrowLoader(), 6, 256, 256);
         }
     }
     @Override

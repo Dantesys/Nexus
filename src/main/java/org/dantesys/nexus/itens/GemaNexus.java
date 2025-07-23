@@ -16,6 +16,7 @@ import org.dantesys.nexus.Nexus;
 import org.dantesys.nexus.blocos.Coletor;
 import org.dantesys.nexus.blocos.entity.ColetorEntity;
 import org.dantesys.nexus.utilidade.Essenced;
+import org.dantesys.nexus.utilidade.NexusTipos;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -28,14 +29,7 @@ public class GemaNexus extends Item implements Essenced {
     @Deprecated
     public void appendHoverText(@NotNull ItemStack stack,@NotNull TooltipContext context,@NotNull TooltipDisplay tooltipDisplay,@NotNull Consumer<Component> tooltipAdder,@NotNull TooltipFlag flag) {
         int tipo = getTipo(stack);
-        String tipoNome = switch (tipo) {
-            case 1 -> "solar";
-            case 2 -> "lunar";
-            case 3 -> "nether";
-            case 4 -> "ender";
-            default -> "nexus";
-        };
-        tooltipAdder.accept(Component.translatable("tooltip."+Nexus.MODID+".gema."+tipoNome));
+        tooltipAdder.accept(Component.translatable("tooltip."+Nexus.MODID+".gema."+NexusTipos.getNomeTipo(tipo)));
         super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
     }
     @Override
@@ -49,14 +43,7 @@ public class GemaNexus extends Item implements Essenced {
     @NotNull
     public Component getName(@NotNull ItemStack stack) {
         int tipo = getTipo(stack);
-        String essenceId = switch (tipo) {
-            case 1 -> "solar";
-            case 2 -> "lunar";
-            case 3 -> "nether";
-            case 4 -> "ender";
-            default -> "nexus";
-        };
-        return Component.translatable("item."+Nexus.MODID+".gema." + essenceId);
+        return Component.translatable("item."+Nexus.MODID+".gema." + NexusTipos.getNomeTipo(tipo));
     }
 
     @NotNull

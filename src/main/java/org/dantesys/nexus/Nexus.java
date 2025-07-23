@@ -13,17 +13,20 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import org.dantesys.nexus.blocos.Coletor;
 import org.dantesys.nexus.blocos.ModBlocos;
 import org.dantesys.nexus.blocos.entity.ModBlocoEntidade;
 import org.dantesys.nexus.componentes.DataComponentes;
 import org.dantesys.nexus.efeitos.ModEfeitos;
 import org.dantesys.nexus.itens.ModItens;
 import org.dantesys.nexus.recipe.ModRecipes;
+import org.dantesys.nexus.telas.ColetorScreen;
 import org.dantesys.nexus.telas.InfusorScreen;
 import org.dantesys.nexus.telas.ModMenuType;
 import org.dantesys.nexus.utilidade.ModCreativeTab;
 import org.slf4j.Logger;
 
+import static org.dantesys.nexus.telas.ModMenuType.COLETOR_MENU;
 import static org.dantesys.nexus.telas.ModMenuType.INFUSOR_MENU;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -78,6 +81,7 @@ public class Nexus {
         @SubscribeEvent // on the mod event bus only on the physical client
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(INFUSOR_MENU.get(), InfusorScreen::new);
+            event.register(COLETOR_MENU.get(), ColetorScreen::new);
         }
     }
 }

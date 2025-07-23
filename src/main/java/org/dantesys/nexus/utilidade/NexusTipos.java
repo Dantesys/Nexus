@@ -1,7 +1,5 @@
 package org.dantesys.nexus.utilidade;
 
-import java.util.Objects;
-
 public enum NexusTipos {
     NEXUS("nexus",0),
     SOLAR("solar",1),

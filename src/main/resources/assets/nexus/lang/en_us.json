@@ -16,6 +16,16 @@
   "effect.nexus.nether_effect": "Burning Soul",
   "effect.nexus.ender_effect": "Enderian Instinct",
   "container.nexus.infusor": "Nexus Infuser",
+  "container.nexus.coletor.nexus": "Nexus Collector",
+  "container.nexus.coletor.solar": "Solar Collector",
+  "container.nexus.coletor.lunar": "Lunar Collector",
+  "container.nexus.coletor.nether": "Nether Collector",
+  "container.nexus.coletor.ender": "Ender Collector",
   "block.nexus.infusor": "Nexus Infuser",
-  "block.nexus.coletor": "Nexus Collector"
+  "block.nexus.coletor": "Nexus Collector",
+  "block.nexus.coletor.nexus": "Nexus Collector",
+  "block.nexus.coletor.solar": "Solar Collector",
+  "block.nexus.coletor.lunar": "Lunar Collector",
+  "block.nexus.coletor.nether": "Nether Collector",
+  "block.nexus.coletor.ender": "Ender Collector"
 }

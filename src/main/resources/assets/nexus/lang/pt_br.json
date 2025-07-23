@@ -16,6 +16,16 @@
   "effect.nexus.nether_effect": "Alma Ardente",
   "effect.nexus.ender_effect": "Instinto Enderiano",
   "container.nexus.infusor": "Infusor Nexus",
+  "container.nexus.coletor.nexus": "Coletor Nexus",
+  "container.nexus.coletor.solar": "Coletor Solar",
+  "container.nexus.coletor.lunar": "Coletor Lunar",
+  "container.nexus.coletor.nether": "Coletor Nether",
+  "container.nexus.coletor.ender": "Coletor Ender",
   "block.nexus.infusor": "Infusor Nexus",
-  "block.nexus.coletor": "Coletor Nexus"
+  "block.nexus.coletor": "Coletor Nexus",
+  "block.nexus.coletor.nexus": "Coletor Nexus",
+  "block.nexus.coletor.solar": "Coletor Solar",
+  "block.nexus.coletor.lunar": "Coletor Lunar",
+  "block.nexus.coletor.nether": "Coletor Nether",
+  "block.nexus.coletor.ender": "Coletor Ender"
 }

@@ -16,6 +16,8 @@ public class ModMenuType {
 
     public static final DeferredHolder<MenuType<?>, MenuType<InfusorMenu>> INFUSOR_MENU =
             registerMenuType("infusor_menu", InfusorMenu::new);
+    public static final DeferredHolder<MenuType<?>, MenuType<ColetorMenu>> COLETOR_MENU =
+            registerMenuType("coletor_menu", ColetorMenu::new);
 
     private static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> registerMenuType(String name,
                                                                                                                IContainerFactory<T> factory) {
