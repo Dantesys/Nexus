@@ -14,11 +14,12 @@ public class ColetorScreen extends AbstractContainerScreen<ColetorMenu> {
 
     public ColetorScreen(ColetorMenu menu, Inventory inv, Component component) {
         super(menu, inv, component);
-        TEXTURE = ResourceLocation.fromNamespaceAndPath(Nexus.MODID, "textures/gui/coletor_"+ NexusTipos.getNomeTipo(menu.isType())+".png");
+        this.inventoryLabelY = 100000;
     }
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+        TEXTURE = ResourceLocation.fromNamespaceAndPath(Nexus.MODID, "textures/gui/coletor_"+ NexusTipos.getNomeTipo(menu.isType())+".png");
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
         guiGraphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0, 0, imageWidth, imageHeight, 256, 256);
@@ -28,7 +29,7 @@ public class ColetorScreen extends AbstractContainerScreen<ColetorMenu> {
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 64, y + 35, 176, 0, menu.getScaledArrowProgress(), 10, 256, 256);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 64, y + 36, 176, 0, menu.getScaledArrowProgress(), 10, 256, 256);
         }
     }
     private void renderProgressEssence(GuiGraphics guiGraphics, int x, int y) {

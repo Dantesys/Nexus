@@ -29,8 +29,8 @@ public class InfusorMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 48, 16));
-        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 112, 16));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 44, 16));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 116, 16));
         this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 80, 49));
 
         addDataSlots(data);
@@ -39,12 +39,16 @@ public class InfusorMenu extends AbstractContainerMenu {
         return data.get(0) > 0;
     }
 
-    public int getScaledArrowProgress() {
+    public int[] getScaledArrowProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
-        int arrowPixelSize = 24;
+        int arrowPixelSize = 21;
+        int arrowPixelSizeDown = 26;
 
-        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
+        return new int[] {
+                maxProgress != 0 && progress != 0 && (float) progress /maxProgress<=0.5f ? progress * arrowPixelSize / (maxProgress/2) : (float) progress /maxProgress>0.5f ? 21:0,
+                maxProgress != 0 && progress != 0 && (float) progress /maxProgress>0.5f ? (progress-(maxProgress/2)) * arrowPixelSizeDown / (maxProgress/2) : 0
+        };
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
@@ -113,7 +117,7 @@ public class InfusorMenu extends AbstractContainerMenu {
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
 }

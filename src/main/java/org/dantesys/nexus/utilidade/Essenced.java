@@ -9,7 +9,7 @@ import org.dantesys.nexus.efeitos.ModEfeitos;
 
 public interface Essenced {
     default void setTipo(ItemStack stack, int tipo){
-        if(stack.is(ModTags.Items.ESSENCED)){
+        if(stack.is(ModTags.Items.ESSENCED) || stack.getItem() instanceof Essenced){
             stack.set(DataComponentes.ESSENCIA_TIPO,tipo);
         }
     }

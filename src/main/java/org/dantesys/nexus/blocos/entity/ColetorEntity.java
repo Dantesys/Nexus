@@ -29,6 +29,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.dantesys.nexus.Nexus;
 import org.dantesys.nexus.blocos.Coletor;
+import org.dantesys.nexus.itens.GemaNexus;
 import org.dantesys.nexus.telas.ColetorMenu;
 import org.dantesys.nexus.utilidade.Essenced;
 import org.dantesys.nexus.utilidade.NexusTipos;
@@ -66,7 +67,7 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
                     case 1 -> ColetorEntity.this.maxProgress;
                     case 2 -> ColetorEntity.this.essencia;
                     case 3 -> ColetorEntity.this.maxEssencia;
-                    case 4 -> ColetorEntity.this.tipo;
+                    case 4 -> ColetorEntity.this.getTipo();
                     default -> 0;
                 };
             }
@@ -197,7 +198,8 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
             tickCont=0;
             int qtd;
             if(level.dimension() == ServerLevel.OVERWORLD){
-                if(level.dayTime() >= 6000 && level.dayTime() < 18000){
+                long tempo = level.getDayTime()%24000L;
+                if(tempo >= 0L && tempo < 13000L){
                     qtd=26;
                     if(tipo==1){
                         qtd*=2;
@@ -244,18 +246,31 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
     }
 
     private void craftItem() {
-        essencia-=32;
-        ItemStack itemStack = itemHandler.extractItem(0, 1, false);
-        if(itemStack.getItem() instanceof Essenced essenced){
-            itemStack.setDamageValue(0);
+        ItemStack itemStack = itemHandler.getStackInSlot(0);
+        ItemStack saida = itemHandler.getStackInSlot(1);
+        if(saida.isEmpty() && itemStack.getItem() instanceof Essenced essenced){
+            essencia-=32;
+            itemStack = itemHandler.extractItem(0, 1, false);
+            if(!(itemStack.getItem() instanceof GemaNexus))itemStack.setDamageValue(0);
             essenced.setTipo(itemStack,findTipo());
+            itemHandler.setStackInSlot(OUTPUT_SLOT, itemStack);
+        }else if(!saida.isEmpty() && itemStack.getItem() instanceof Essenced essenced){
+            if(saida.getItem() instanceof GemaNexus gema){
+                if(gema.getTipo(saida) == findTipo()){
+                    essencia-=32;
+                    itemStack = itemHandler.extractItem(0, 1, false);
+                    itemStack.setCount(saida.getCount()+1);
+                    essenced.setTipo(itemStack,findTipo());
+                    itemHandler.setStackInSlot(OUTPUT_SLOT, itemStack);
+                }
+            }
         }
-        itemHandler.setStackInSlot(OUTPUT_SLOT, itemStack);
     }
     private int findTipo(){
         if(tipo==0){
             if(level.dimension() == ServerLevel.OVERWORLD){
-                if(level.dayTime() >= 6000 && level.dayTime() < 18000){
+                long tempo = level.getDayTime()%24000L;
+                if(tempo >= 0L && tempo < 13000L){
                     return 1;
                 }else{
                     return 2;

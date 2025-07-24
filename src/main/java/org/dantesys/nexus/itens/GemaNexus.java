@@ -3,6 +3,7 @@ package org.dantesys.nexus.itens;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -66,7 +67,10 @@ public class GemaNexus extends Item implements Essenced {
                         }
                         blockState.setValue(Coletor.TIPO,tipo);
                         coletor.setTipo(tipo);
-                        item.setTipo(stack,novotipo);
+                        stack.shrink(1);
+                        ItemStack novo = new ItemStack(ModItens.GEMA.get());
+                        item.setTipo(novo,novotipo);
+                        context.getPlayer().getInventory().addAndPickItem(novo);
                     }
                 }
             }

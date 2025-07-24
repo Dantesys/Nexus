@@ -27,7 +27,9 @@ public class InfusorScreen extends AbstractContainerScreen<InfusorMenu> {
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 68, y + 22, 176, 0, 39, menu.getScaledArrowProgress(), 256, 256);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 63, y + 23, 176, 3, menu.getScaledArrowProgress()[0],26, 256, 256);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 112-menu.getScaledArrowProgress()[0], y + 23, 226-menu.getScaledArrowProgress()[0], 3, menu.getScaledArrowProgress()[0],26, 256, 256);
+            guiGraphics.blit(RenderPipelines.GUI_TEXTURED,TEXTURE, x + 84, y + 20, 197, 0, 8,menu.getScaledArrowProgress()[1], 256, 256);
         }
     }
     @Override
