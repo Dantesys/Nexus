@@ -149,7 +149,7 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
                 switch (tipo){
                     case 0 ->{
                         particula = ParticleTypes.END_ROD;
-                        som = SoundEvents.ANVIL_USE;
+                        som = SoundEvents.BEACON_AMBIENT;
                     }
                     case 1 -> {
                         particula = ParticleTypes.FLAME;
@@ -165,7 +165,7 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
                     }
                     case 4 -> {
                         particula = ParticleTypes.DRAGON_BREATH;
-                        som = SoundEvents.ENDER_DRAGON_GROWL;
+                        som = SoundEvents.WATER_AMBIENT;
                     }
                 }
                 if(level instanceof ServerLevel sv){
@@ -183,7 +183,6 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
                     sv.sendParticles(ParticleTypes.HAPPY_VILLAGER,blockPos.getX(),blockPos.getY()+1f,blockPos.getZ(),5,0.25,0.25,0.25,0.01);
                     sv.playSound(null,blockPos,SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.BLOCKS,0.6f,1f);
                 }
-                resetProgress();
             }
         } else {
             resetProgress();
@@ -254,14 +253,16 @@ public class ColetorEntity extends BlockEntity implements MenuProvider {
             if(!(itemStack.getItem() instanceof GemaNexus))itemStack.setDamageValue(0);
             essenced.setTipo(itemStack,findTipo());
             itemHandler.setStackInSlot(OUTPUT_SLOT, itemStack);
+            resetProgress();
         }else if(!saida.isEmpty() && itemStack.getItem() instanceof Essenced essenced){
-            if(saida.getItem() instanceof GemaNexus gema){
-                if(gema.getTipo(saida) == findTipo()){
+            if(saida.getItem() instanceof GemaNexus){
+                if(essenced.getTipo(itemStack) == findTipo()){
                     essencia-=32;
                     itemStack = itemHandler.extractItem(0, 1, false);
                     itemStack.setCount(saida.getCount()+1);
                     essenced.setTipo(itemStack,findTipo());
                     itemHandler.setStackInSlot(OUTPUT_SLOT, itemStack);
+                    resetProgress();
                 }
             }
         }
