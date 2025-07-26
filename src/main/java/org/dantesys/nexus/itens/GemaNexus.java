@@ -3,9 +3,9 @@ package org.dantesys.nexus.itens;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.context.UseOnContext;
@@ -30,7 +30,7 @@ public class GemaNexus extends Item implements Essenced {
     @Deprecated
     public void appendHoverText(@NotNull ItemStack stack,@NotNull TooltipContext context,@NotNull TooltipDisplay tooltipDisplay,@NotNull Consumer<Component> tooltipAdder,@NotNull TooltipFlag flag) {
         int tipo = getTipo(stack);
-        tooltipAdder.accept(Component.translatable("tooltip."+Nexus.MODID+".gema."+NexusTipos.getNomeTipo(tipo)));
+        tooltipAdder.accept(Component.translatable("tooltip."+Nexus.MODID+"."+NexusTipos.getNomeTipo(tipo)));
         super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
     }
     @Override
