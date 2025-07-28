@@ -1,8 +1,8 @@
 package org.dantesys.nexus.utilidade;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import cpw.mods.util.Lazy;
 import net.minecraft.client.KeyMapping;
+import net.neoforged.jarjar.nio.util.Lazy;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyMappings {

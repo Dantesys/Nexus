@@ -14,7 +14,7 @@ public class ModItens {
 
     public static final DeferredItem<Item> ORB = ITEMS.registerSimpleItem("orb",new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON));
     public static final DeferredItem<Item> GEMA = ITEMS.registerItem("gema",GemaNexus::new,new Item.Properties().fireResistant().rarity(Rarity.UNCOMMON));
-    public static final DeferredItem<Item> ESPADA = ITEMS.registerItem("espada",EspadaNexus::new,new Item.Properties().sword(ModTiers.NEXUS_TIER,3,-2.4f));
+    public static final DeferredItem<Item> ESPADA = ITEMS.registerItem("espada",props -> new EspadaNexus(props.sword(ModTiers.NEXUS_TIER,3,-2.4f)));
 
     public static final DeferredItem<BlockItem> INFUSOR = ITEMS.registerSimpleBlockItem("infusor", ModBlocos.INFUSOR);
     public static final DeferredItem<BlockItem> COLETOR = ITEMS.registerSimpleBlockItem("coletor", ModBlocos.COLETOR);

@@ -32,7 +32,7 @@ public class ModEvents {
         ItemStack stack = player.getMainHandItem();
         if(stack.getItem() instanceof Essenced essenced){
             if(HAB_MAPPING.get().consumeClick() && !player.getCooldowns().isOnCooldown(stack)){
-                essenced.habilidade((ServerPlayer) player,stack);
+                essenced.habilidade(player,stack);
             }
         }
 

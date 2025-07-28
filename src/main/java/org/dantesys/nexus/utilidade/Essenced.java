@@ -16,7 +16,7 @@ public interface Essenced {
     default int getTipo(ItemStack stack) {
         return stack.getOrDefault(DataComponentes.ESSENCIA_TIPO,0);
     }
-    default void habilidade(ServerPlayer player, ItemStack stack){}
+    default void habilidade(Player player, ItemStack stack){}
     default void passiva(Player player, ItemStack stack){
         int tipo = stack.getOrDefault(DataComponentes.ESSENCIA_TIPO,0);
         switch (tipo){

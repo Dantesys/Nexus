@@ -25,9 +25,4 @@ public class ModEventsClient {
                 ModModelProperty.TYPE
         );
     }
-    @SubscribeEvent
-    public static void registerKeyMapping(RegisterKeyMappingsEvent event){
-        event.register(HAB_MAPPING.get());
-        event.register(SWAP_MAPPING.get());
-    }
 }

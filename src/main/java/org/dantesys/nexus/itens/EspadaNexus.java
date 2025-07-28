@@ -9,10 +9,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.dantesys.nexus.Nexus;
 import org.dantesys.nexus.utilidade.Essenced;
@@ -56,21 +58,24 @@ public class EspadaNexus extends Item implements Essenced {
     }
 
     @Override
-    public void habilidade(ServerPlayer player, ItemStack stack) {
+    public void habilidade(Player player, ItemStack stack) {
         int tipo = getTipo(stack);
-        ServerLevel level = player.level();
+        Level level = player.level();
         switch (tipo){
             case 1 -> {
-                AABB area = player.getBoundingBox().expandTowards(player.getLookAngle().scale(4)).inflate(2);
-                List<LivingEntity> alvos = level.getEntitiesOfClass(LivingEntity.class,area,e -> e!=player && player.hasLineOfSight(e));
-                for(LivingEntity alvo: alvos){
-                    try{
-                        alvo.hurtServer(level,player.damageSources().playerAttack(player),9f);
-                        alvo.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,60));
-                    }catch (Exception e){}
+                if (!level.isClientSide) {
+                    AABB area = player.getBoundingBox().expandTowards(player.getLookAngle().scale(4)).inflate(2);
+                    List<LivingEntity> alvos = level.getEntitiesOfClass(LivingEntity.class,area,e -> e!=player && player.hasLineOfSight(e));
+                    for(LivingEntity alvo: alvos){
+                        try{
+                            alvo.hurtServer((ServerLevel) level,player.damageSources().playerAttack(player),9f);
+                            alvo.addEffect(new MobEffectInstance(MobEffects.BLINDNESS,60));
+                        }catch (Exception e){}
+                    }
+                    level.playSound(null,player.blockPosition(), SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.PLAYERS,1f,1.2f);
+                    ((ServerLevel) level).sendParticles(ParticleTypes.FLAME,player.getX(),player.getY()+1.5,player.getZ(),20,0.5,0.5,0.5,0.01);
                 }
-                level.playSound(null,player.blockPosition(), SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.PLAYERS,1f,1.2f);
-                level.sendParticles(ParticleTypes.FLAME,player.getX(),player.getY()+1.5,player.getZ(),20,0.5,0.5,0.5,0.01);
+
             }
         }
     }

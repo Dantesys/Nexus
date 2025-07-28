@@ -10,6 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -28,6 +29,8 @@ import org.slf4j.Logger;
 
 import static org.dantesys.nexus.telas.ModMenuType.COLETOR_MENU;
 import static org.dantesys.nexus.telas.ModMenuType.INFUSOR_MENU;
+import static org.dantesys.nexus.utilidade.KeyMappings.HAB_MAPPING;
+import static org.dantesys.nexus.utilidade.KeyMappings.SWAP_MAPPING;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Nexus.MODID)
@@ -82,6 +85,11 @@ public class Nexus {
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(INFUSOR_MENU.get(), InfusorScreen::new);
             event.register(COLETOR_MENU.get(), ColetorScreen::new);
+        }
+        @SubscribeEvent
+        public static void registerKeyMapping(RegisterKeyMappingsEvent event){
+            event.register(HAB_MAPPING.get());
+            event.register(SWAP_MAPPING.get());
         }
     }
 }
